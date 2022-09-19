@@ -18,4 +18,19 @@ export const TodoBoxStyled = styled.div`
     background: #3c424a;
     border-radius: 30px;
   }
+
+  .box_title {
+    padding: 3rem;
+    text-align: center;
+    color: #fff;
+
+    h2 {
+      font-size: 3.5rem;
+    }
+
+    h4 {
+      font-size: 3rem;
+      font-family: "Microsoft Phagspa";
+    }
+  }
 `;

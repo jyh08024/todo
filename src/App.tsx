@@ -8,7 +8,6 @@ const App = () => {
   return (
     <TodoListStyle>
       <TodoBox></TodoBox>
-      {/* <TodoItem isComplete /> */}
     </TodoListStyle>
   );
 };

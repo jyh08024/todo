@@ -22,7 +22,8 @@ export const TodoListStyle = styled.div`
 
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to right, #f2c2c5, #ae80c7);
+  background: linear-gradient(to bottom, #f2c2c5, #ae80c7);
+  /* background: linear-gradient(to bottom, #d883ff, #895fff); */
 
   h1,
   h2,
@@ -31,5 +32,18 @@ export const TodoListStyle = styled.div`
   h5,
   b {
     font-family: "noto_b";
+  }
+
+  .btn {
+    background: linear-gradient(to bottom, #f2c2c5, #ae80c7);
+    /* background: linear-gradient(to bottom, #d883ff, #895fff); */
+    padding: .6rem 1.4rem;
+    border-radius: 999px;
+    font-size: 1.2rem;
+    font-family: "noto";
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    color: #3c424a;
   }
 `;

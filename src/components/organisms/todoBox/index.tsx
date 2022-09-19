@@ -1,5 +1,6 @@
 import React from "react";
 import { TodoBoxStyled } from "./styled";
+import TodoForm from "../../molecule/todoForm";
 
 const TodoBox = () => {
   const today = new Date();
@@ -10,8 +11,12 @@ const TodoBox = () => {
   return (
     <TodoBoxStyled>
       <div className="todoBox leftBox">
-        <h2>ToDo</h2>
-        <h4>{year}-{`${month}`.padStart(2, '0')}-{`${day}`.padStart(2, '0')}</h4>
+        <div className="box_title">
+          <h2>To-Do-List</h2>
+          <h4>{year}년 {`${month + 1}`.padStart(2, '0')}월 {`${day}`.padStart(2, '0')}일</h4>
+        </div>
+
+        <TodoForm />
       </div>
 
       <div className="todoBox rightBox">
