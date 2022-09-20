@@ -17,10 +17,11 @@ export const TodoBoxStyled = styled.div`
     height: 100%;
     background: #3c424a;
     border-radius: 30px;
+    color: #fff;
+    padding: 3rem;
   }
 
   .box_title {
-    padding: 3rem;
     text-align: center;
     color: #fff;
 

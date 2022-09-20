@@ -3,8 +3,9 @@ import { TodoListStyle } from "./styled";
 import TodoItem  from "./components/atoms/todoItem";
 import TodoBox from "./components/organisms/todoBox";
 
-const App = () => {
+const ls = localStorage;
 
+const App = () => {
   return (
     <TodoListStyle>
       <TodoBox></TodoBox>

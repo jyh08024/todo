@@ -39,7 +39,7 @@ export const TodoListStyle = styled.div`
     /* background: linear-gradient(to bottom, #d883ff, #895fff); */
     padding: .6rem 1.4rem;
     border-radius: 999px;
-    font-size: 1.2rem;
+    font-size: .9rem;
     font-family: "noto";
     color: #fff;
     cursor: pointer;

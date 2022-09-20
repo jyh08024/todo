@@ -17,6 +17,12 @@ const TodoBox = () => {
         </div>
 
         <TodoForm />
+
+        <h2>중요한 할일</h2>
+
+        <div className="important_list">
+          
+        </div>
       </div>
 
       <div className="todoBox rightBox">
