@@ -4,18 +4,19 @@ import { EnrInputStyle } from "./styled";
 interface SearchTypes {
   value: string;
   onchange: any;
+  dataSubmit: any;
 }
 
-const TodoInput = ({ value, onchange }: SearchTypes) => {
+const TodoInput = ({ value, onchange, dataSubmit }: SearchTypes) => {
   return (
-    <EnrInputStyle>
+    <EnrInputStyle onSubmit={dataSubmit}>
       <input type="text"
         value={value}
         onChange={onchange}
         placeholder="일정을 입력해주세요."
       />
 
-      <button className="btn">등록</button>
+      <button className="btn enrBtn">등록</button>
     </EnrInputStyle>
   );
 };

@@ -15,6 +15,7 @@ const TodoForm = () => {
         <TodoInput 
           value={inputValue} 
           onchange={onChange} 
+          dataSubmit
         />
       </div>
     </TodoFormStyle>

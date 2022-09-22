@@ -1,23 +1,19 @@
 import React from "react";
 import { TodoItemStyled } from "./styled";
 
-interface TodoListTypeInfo {
-  // title: string;
-  // idx: number;
-  isComplete: boolean;
-  // onRemove: any;
-  // onCompletion: any;
-}
-
 const TodoItem = ({
-  // title,
-  // idx,
+  title,
+  idx,
   isComplete,
-  // onRemove,
-  // onCompletion,
-}: TodoListTypeInfo) => {
+  isRemove,
+  isCompletion,
+}: any) => {
   return (
-    <TodoItemStyled className={isComplete ? "complete" : ""}>
+    <TodoItemStyled 
+      className={isComplete ? "complete" : ""} 
+      title={title}
+      data-idx={idx}
+      >
       
     </TodoItemStyled>
   )

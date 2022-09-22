@@ -6,7 +6,6 @@ import TodoBox from "./components/organisms/todoBox";
 const ls = localStorage;
 
 const App = () => {
-  console.log('asd');
   return (
     <TodoListStyle>
       <TodoBox></TodoBox>
