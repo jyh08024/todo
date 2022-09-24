@@ -9,13 +9,17 @@ const TodoForm = () => {
     setInputValue(e.target.value);
   };
 
+  const dataAdd = (e: any) => {
+    e.preventDefault();
+  }
+
   return (
     <TodoFormStyle>
       <div className="enr_form">
         <TodoInput 
           value={inputValue} 
           onchange={onChange} 
-          dataSubmit
+          dataAdd={dataAdd}
         />
       </div>
     </TodoFormStyle>

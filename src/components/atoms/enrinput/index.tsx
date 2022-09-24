@@ -4,12 +4,12 @@ import { EnrInputStyle } from "./styled";
 interface SearchTypes {
   value: string;
   onchange: any;
-  dataSubmit: any;
+  dataAdd: any;
 }
 
-const TodoInput = ({ value, onchange, dataSubmit }: SearchTypes) => {
+const TodoInput = ({ value, onchange, dataAdd }: SearchTypes) => {
   return (
-    <EnrInputStyle onSubmit={dataSubmit}>
+    <EnrInputStyle onSubmit={dataAdd}>
       <input type="text"
         value={value}
         onChange={onchange}
