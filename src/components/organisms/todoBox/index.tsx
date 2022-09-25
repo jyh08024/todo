@@ -1,12 +1,28 @@
-import React from "react";
+import React, {useEffect, useMemo, useState} from 'react';
 import { TodoBoxStyled } from "./styled";
 import TodoForm from "../../molecule/todoForm";
+
+const ls = localStorage;
 
 const TodoBox = () => {
   const today = new Date();
   const year = today.getFullYear();
   const month = today.getMonth();
   const day = today.getDate();
+
+  const [list, setList] = useState<any>();
+
+  useEffect(() => {
+    // setList(JSON.parse(ls["jyh_todo"] || []));
+  }, []);
+
+  useEffect(() => {
+    ls['jyh_todo'] = JSON.stringify(list);
+  }, [list]);
+
+  const dataAdd = (e: any) => {
+    e.preventDefault();
+  }
 
   return (
     <TodoBoxStyled>
@@ -16,7 +32,7 @@ const TodoBox = () => {
           <h4>{year}년 {`${month + 1}`.padStart(2, '0')}월 {`${day}`.padStart(2, '0')}일</h4>
         </div>
 
-        <TodoForm />
+        <TodoForm dataAdd={dataAdd} />
 
         <h2>중요한 할일</h2>
 

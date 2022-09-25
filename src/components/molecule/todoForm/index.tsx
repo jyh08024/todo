@@ -2,16 +2,12 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { TodoFormStyle } from "./styled";
 import TodoInput from "../../atoms/enrinput";
 
-const TodoForm = () => {
+const TodoForm = ({dataAdd}: any) => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const onChange = (e: any) => {
     setInputValue(e.target.value);
   };
-
-  const dataAdd = (e: any) => {
-    e.preventDefault();
-  }
 
   return (
     <TodoFormStyle>
