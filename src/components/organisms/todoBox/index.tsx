@@ -13,15 +13,19 @@ const TodoBox = () => {
   const [list, setList] = useState<any>();
 
   useEffect(() => {
-    // setList(JSON.parse(ls["jyh_todo"] || []));
+    const isLs = ls['jyh_todo'];
+
+    setList(() => JSON.parse(ls['jyh_todo']) || []);
   }, []);
 
   useEffect(() => {
-    ls['jyh_todo'] = JSON.stringify(list);
+
   }, [list]);
 
   const dataAdd = (e: any) => {
     e.preventDefault();
+
+    
   }
 
   return (
