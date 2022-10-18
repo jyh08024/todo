@@ -4,29 +4,61 @@ import TodoForm from "../../molecule/todoForm";
 
 const ls = localStorage;
 
+interface TodoItemTypes {
+  idx: number;
+  content: string;
+  isComplete: Boolean;
+  isImportant: Boolean;
+  addedDate: string;
+}
+
+const completeCount = (list: Array<TodoItemTypes>) => {
+  const completeList = list.filter(v => v.isComplete).length;
+  return [list.length - completeList, completeList];
+}
+
+const getFullDate = (date: any) => {
+  return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+}
+
 const TodoBox = () => {
   const today = new Date();
   const year = today.getFullYear();
   const month = today.getMonth();
   const day = today.getDate();
 
-  const [list, setList] = useState<any>();
+  const [list, setList] = useState<Array<TodoItemTypes>>([]);
+  const [inputValue, setInputValue] = useState<string>("");
 
   useEffect(() => {
-    const isLs = ls['jyh_todo'];
-
-    setList(() => JSON.parse(ls['jyh_todo']) || []);
+    setList(JSON.parse(ls["jyh_todo"] || "[]"));
   }, []);
 
   useEffect(() => {
-
+    ls['jyh_todo'] = JSON.stringify(list);
   }, [list]);
+
+
+  const onChange = (e: any) => {
+    setInputValue(e.target.value);
+  };
 
   const dataAdd = (e: any) => {
     e.preventDefault();
 
-    
+    const data: TodoItemTypes = {
+      idx: list.length + 1,
+      content: inputValue,
+      isComplete: false,
+      isImportant: false,
+      addedDate: getFullDate(new Date()),
+    };
+
+    setList([...list, data]);
+    setInputValue("");
   }
+  
+  const count = useMemo(() => completeCount(list), [list || []]);
 
   return (
     <TodoBoxStyled>
@@ -34,9 +66,10 @@ const TodoBox = () => {
         <div className="box_title">
           <h2>To-Do-List</h2>
           <h4>{year}년 {`${month + 1}`.padStart(2, '0')}월 {`${day}`.padStart(2, '0')}일</h4>
+          <h1>할일: {count[0]}개 / 끝낸 일: {count[1]}개</h1>
         </div>
 
-        <TodoForm dataAdd={dataAdd} />
+        <TodoForm dataAdd={dataAdd} inputValue={inputValue} onChange={onChange} />
 
         <h2>중요한 할일</h2>
 

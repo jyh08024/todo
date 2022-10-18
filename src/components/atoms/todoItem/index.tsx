@@ -5,8 +5,8 @@ const TodoItem = ({
   title,
   idx,
   isComplete,
-  isRemove,
-  isCompletion,
+  isImportant,
+  addedDate,
 }: any) => {
   return (
     <TodoItemStyled 
