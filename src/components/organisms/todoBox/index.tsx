@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import { TodoBoxStyled } from "./styled";
 import TodoForm from "../../molecule/todoForm";
 
-const ls = localStorage;
+const ls = localStorage['todo'];
 
 interface TodoItemTypes {
   idx: number;
@@ -31,13 +31,12 @@ const TodoBox = () => {
   const [inputValue, setInputValue] = useState<string>("");
 
   useEffect(() => {
-    setList(JSON.parse(ls["jyh_todo"] || "[]"));
+    setList(JSON.parse(ls || "[]"));
   }, []);
 
   useEffect(() => {
-    ls['jyh_todo'] = JSON.stringify(list);
+    localStorage['todo'] = JSON.stringify(list);
   }, [list]);
-
 
   const onChange = (e: any) => {
     setInputValue(e.target.value);
@@ -45,6 +44,8 @@ const TodoBox = () => {
 
   const dataAdd = (e: any) => {
     e.preventDefault();
+
+    if (inputValue.trim() == "" ) return alert('일정을 입력해주세요.');
 
     const data: TodoItemTypes = {
       idx: list.length + 1,
