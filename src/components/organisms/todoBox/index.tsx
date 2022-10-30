@@ -1,6 +1,7 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import { TodoBoxStyled } from "./styled";
 import TodoForm from "../../molecule/todoForm";
+import TodoList from "../../molecule/todoList";
 
 const ls = localStorage['todo'];
 
@@ -58,6 +59,18 @@ const TodoBox = () => {
     setList([...list, data]);
     setInputValue("");
   }
+
+  const onRemove = (e: any) => {
+
+  }
+
+  const onComplete = (e: any) => {
+    
+  }
+
+  const onImportant = (e: any) => {
+    
+  }
   
   const count = useMemo(() => completeCount(list), [list || []]);
 
@@ -80,7 +93,7 @@ const TodoBox = () => {
       </div>
 
       <div className="todoBox rightBox">
-        
+        <TodoList isImportant={ false } list={ list } onRemove={ onRemove } onComplete={ onComplete } onImportant={ onImportant }></TodoList>
       </div>
     </TodoBoxStyled>
   );

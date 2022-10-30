@@ -5,16 +5,16 @@ const TodoItem = ({
   title,
   idx,
   isComplete,
-  isImportant,
   addedDate,
 }: any) => {
   return (
     <TodoItemStyled 
-      className={isComplete ? "complete" : ""} 
-      title={title}
+      className={isComplete ? "complete" : ""}
       data-idx={idx}
       >
       
+      <h3>{title}</h3>
+      <p>등록일: { addedDate }</p>
     </TodoItemStyled>
   )
 }
